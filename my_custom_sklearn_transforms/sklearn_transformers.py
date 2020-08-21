@@ -12,7 +12,16 @@ class DropColumns(BaseEstimator, TransformerMixin):
     def transform(self, X):
         # Primeiro realizamos a cópia do dataframe 'X' de entrada
         data = X.copy()
-        data = data.drop(labels=self.columns, axis='columns')
-        data=(data-data.min())/(data.max()-data.min())
-        # Retornamos um novo dataframe sem as colunas indesejadas
-        return data
+        return data.drop(labels=self.columns, axis='columns')
+
+    # All sklearn Transforms must have the `transform` and `fit` methods
+class NormaliceColumns(BaseEstimator, TransformerMixin):
+    def __init__(self):
+
+    def fit(self, X, y=None):
+        return self
+
+    def transform(self, X):
+        # Primeiro realizamos a cópia do dataframe 'X' de entrada
+        data = X.copy()
+        return (data-data.min())/(data.max()-data.min())
