@@ -16,8 +16,6 @@ class DropColumns(BaseEstimator, TransformerMixin):
 
     # All sklearn Transforms must have the `transform` and `fit` methods
 class NormaliceColumns(BaseEstimator, TransformerMixin):
-    def __init__(self):
-
     def fit(self, X, y=None):
         return self
 
