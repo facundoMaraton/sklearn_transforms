@@ -10,7 +10,8 @@ class NormaliceColumnsGG(BaseEstimator, TransformerMixin):
     def transform(self, X):
         # Primeiro realizamos a cópia do dataframe 'X' de entrada
         data = X.copy()
-        return (data-data.min())/(data.max()-data.min())
+        data = (data-data.min())/(data.max()-data.min())
+        return data
 
 # All sklearn Transforms must have the `transform` and `fit` methods
 class DropColumns(BaseEstimator, TransformerMixin):
